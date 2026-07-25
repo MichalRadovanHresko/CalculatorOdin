@@ -13,6 +13,10 @@ const multiply = (multiplier, multiplicand) => {
 };
 
 const divide = (dividend, divisor) => {
+  if (divisor === 0) {
+    alert("Nice try, but division by zero is not allowed!");
+    return 0;
+  }
   return dividend / divisor;
 };
 
@@ -56,9 +60,10 @@ const setOperator = (newOperator) => {
   // Reset operator
 
   if (operator) {
-    firstNumber = Number(
-      operate(operator, Number(firstNumber), Number(secondNumber)),
-    ).toFixed(2);
+    firstNumber =
+      Math.round(
+        operate(operator, Number(firstNumber), Number(secondNumber)) * 100,
+      ) / 100;
     display.textContent = `${firstNumber}`;
     operator = null;
   } else {
@@ -73,9 +78,10 @@ const setOperator = (newOperator) => {
 // Display final value
 
 const showResult = () => {
-  firstNumber = Number(
-    operate(operator, Number(firstNumber), Number(secondNumber)),
-  ).toFixed(2);
+  firstNumber =
+    Math.round(
+      operate(operator, Number(firstNumber), Number(secondNumber)) * 100,
+    ) / 100;
   secondNumber = 0;
   operator = null;
   display.textContent = `${firstNumber}`;
