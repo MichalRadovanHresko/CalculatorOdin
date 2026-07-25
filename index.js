@@ -88,7 +88,7 @@ const setOperator = (newOperator) => {
 // Reset second number
 // Display final value
 
-const showResult = () => {
+const getResult = () => {
   firstNumber =
     Math.round(
       operate(operator, Number(firstNumber), Number(secondNumber)) * 100,
@@ -125,3 +125,33 @@ const goBack = () => {
 
 const display = document.querySelector(".calculator-display");
 display.textContent = `${firstNumber === null ? "0" : firstNumber}`;
+
+// Add support for keyboard
+// Keyboard for numbers from 0-9
+
+document.addEventListener("keypress", (event) => {
+  if (event.key.charCodeAt() > 47 && event.key.charCodeAt() < 59)
+    updateNum(event.key);
+
+  // Operators keys (+,-,*,/)
+  switch (event.key.charCodeAt()) {
+    case 47:
+      setOperator(event.key);
+      break;
+    case 43:
+      setOperator(event.key);
+      break;
+    case 42:
+      setOperator(event.key);
+      break;
+    case 45:
+      setOperator(event.key);
+      break;
+  }
+  // Evaluate keyboard (enter)
+  if (event.key.charCodeAt() === 69)
+    getResult(operator, firstNumber, secondNumber);
+
+  // Reset button (R)
+  if (event.key.charCodeAt() === 114) resetValues();
+});
