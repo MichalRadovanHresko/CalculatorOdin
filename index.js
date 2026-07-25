@@ -94,11 +94,15 @@ const showResult = () => {
 };
 
 // Reset all variables
+
 const resetValues = () => {
   firstNumber = null;
   secondNumber = null;
   display.textContent = `${firstNumber}`;
 };
+
+// Check if variables has any values
+// Based on condition remove either from first number or second or operator
 
 const goBack = () => {
   if (operator === null && secondNumber === null) {
