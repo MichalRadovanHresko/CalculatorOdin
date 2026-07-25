@@ -51,7 +51,9 @@ const setOperator = (newOperator) => {
   display.textContent = `${firstNumber} ${operator}`;
 };
 const showResult = () => {
-  display.textContent = `${operate(operator, Number(firstNumber), Number(secondNumber))}`;
+  firstNumber = operate(operator, Number(firstNumber), Number(secondNumber));
+  secondNumber = 0;
+  display.textContent = `${firstNumber}`;
 };
 const resetValues = () => {
   firstNumber = 0;
