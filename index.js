@@ -20,8 +20,7 @@ const divide = (dividend, divisor) => {
 
 let firstNumber = 0;
 let secondNumber = 0;
-let operator = "+";
-let isOperatorSelected = false;
+let operator = false;
 
 // Operate function
 
@@ -33,8 +32,11 @@ const operate = (operator, num1, num2) => {
   else throw new Error("Incorrect operator!");
 };
 
+// Click on button => add digit to number
+// If we already chose operator => add digit to second number
+
 const updateNum = (num) => {
-  if (!isOperatorSelected) {
+  if (!operator) {
     if (firstNumber === 0) firstNumber = String(num);
     else firstNumber += String(num);
     display.textContent = `${firstNumber}`;
@@ -45,20 +47,29 @@ const updateNum = (num) => {
   }
 };
 
+// Set operator value
+// Display first number and operator
+
 const setOperator = (newOperator) => {
+  secondNumber = 0;
   operator = newOperator;
-  isOperatorSelected = true;
   display.textContent = `${firstNumber} ${operator}`;
 };
+
+// Store operate result in first number variable
+// Reset second number
+// Display final value
+
 const showResult = () => {
   firstNumber = operate(operator, Number(firstNumber), Number(secondNumber));
   secondNumber = 0;
   display.textContent = `${firstNumber}`;
 };
+
+// Reset all variables
 const resetValues = () => {
   firstNumber = 0;
   secondNumber = 0;
-  isOperatorSelected = false;
   display.textContent = `${firstNumber}`;
 };
 
