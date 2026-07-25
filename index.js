@@ -53,6 +53,12 @@ const setOperator = (newOperator) => {
 const showResult = () => {
   display.textContent = `${operate(operator, Number(firstNumber), Number(secondNumber))}`;
 };
+const resetValues = () => {
+  firstNumber = 0;
+  secondNumber = 0;
+  isOperatorSelected = false;
+  display.textContent = `${firstNumber}`;
+};
 
 const display = document.querySelector(".calculator-display");
 display.textContent = `${firstNumber}`;
