@@ -18,9 +18,10 @@ const divide = (dividend, divisor) => {
 
 // 3 variables for our calculator
 
-let firstNumber = 5;
-let secondNumber = 3;
+let firstNumber = 0;
+let secondNumber = 0;
 let operator = "+";
+let isOperatorSelected = false;
 
 // Operate function
 
@@ -31,3 +32,24 @@ const operate = (operator, num1, num2) => {
   else if (operator === "/") return divide(num1, num2);
   else throw new Error("Incorrect operator!");
 };
+
+const updateNum = (num) => {
+  if (!isOperatorSelected) {
+    if (firstNumber === 0) firstNumber = String(num);
+    else firstNumber += String(num);
+    display.textContent = `${firstNumber}`;
+  } else {
+    if (secondNumber === 0) secondNumber = String(num);
+    else secondNumber += String(num);
+    display.textContent = `${firstNumber} ${operator} ${secondNumber}`;
+  }
+};
+
+const setOperator = (newOperator) => {
+  operator = newOperator;
+  isOperatorSelected = true;
+  display.textContent = `${firstNumber} ${operator}`;
+};
+
+const display = document.querySelector(".calculator-display");
+display.textContent = `${firstNumber}`;

@@ -9,28 +9,28 @@
 <body>
     <div class="calculator">
         <div class="calculator-display">
-            2245 + 252
+            
         </div>
         <div class="layout">
             <div class="btns">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>0</button>
+                <button onclick="updateNum(7)">7</button>
+                <button onclick="updateNum(8)">8</button>
+                <button onclick="updateNum(9)">9</button>
+                <button onclick="updateNum(4)">4</button>
+                <button onclick="updateNum(5)">5</button>
+                <button onclick="updateNum(6)">6</button>
+                <button onclick="updateNum(1)">1</button>
+                <button onclick="updateNum(2)">2</button>
+                <button onclick="updateNum(3)">3</button>
+                <button onclick="updateNum(0)">0</button>
                 <button>.</button>
                 <button>AC</button>
             </div>
             <div class="operator-btns">
-                <button>÷</button>
-                <button>x</button>
-                <button>-</button>
-                <button>+</button>
+                <button onclick="setOperator('÷')">÷</button>
+                <button onclick="setOperator('x')">x</button>
+                <button onclick="setOperator('-')">-</button>
+                <button onclick="setOperator('+')">+</button>
                 <button>=</button>
             </div>
         </div>
