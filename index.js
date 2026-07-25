@@ -56,7 +56,9 @@ const setOperator = (newOperator) => {
   // Reset operator
 
   if (operator) {
-    firstNumber = operate(operator, Number(firstNumber), Number(secondNumber));
+    firstNumber = Number(
+      operate(operator, Number(firstNumber), Number(secondNumber)),
+    ).toFixed(2);
     display.textContent = `${firstNumber}`;
     operator = null;
   } else {
@@ -71,7 +73,9 @@ const setOperator = (newOperator) => {
 // Display final value
 
 const showResult = () => {
-  firstNumber = operate(operator, Number(firstNumber), Number(secondNumber));
+  firstNumber = Number(
+    operate(operator, Number(firstNumber), Number(secondNumber)),
+  ).toFixed(2);
   secondNumber = 0;
   operator = null;
   display.textContent = `${firstNumber}`;
