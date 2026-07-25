@@ -43,9 +43,15 @@ const operate = (operator, num1, num2) => {
 // If we already chose operator => add digit to second number
 
 const updateNum = (num) => {
+  // Prevent entering more than one decimal point in the current number
+  if (num === "." && String(firstNumber).includes(".") && secondNumber === null)
+    return;
+  if (num === "." && String(secondNumber).includes(".")) return;
+
   if (!operator) {
     if (firstNumber === null || resultCalled) {
-      firstNumber = String(num);
+      if (num === ".") firstNumber = "0.";
+      else firstNumber = String(num);
       resultCalled = false;
     } else firstNumber += String(num);
     display.textContent = `${firstNumber}`;
@@ -98,7 +104,7 @@ const showResult = () => {
 const resetValues = () => {
   firstNumber = null;
   secondNumber = null;
-  display.textContent = `${firstNumber}`;
+  display.textContent = `${firstNumber === null ? "0" : firstNumber}`;
 };
 
 // Check if variables has any values
@@ -118,4 +124,4 @@ const goBack = () => {
 };
 
 const display = document.querySelector(".calculator-display");
-display.textContent = `${firstNumber === null ? 0 : firstNumber}`;
+display.textContent = `${firstNumber === null ? "0" : firstNumber}`;
