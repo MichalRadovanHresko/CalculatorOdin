@@ -11,3 +11,7 @@ const substract = (minuend, subtrahend) => {
 const multiply = (multiplier, multiplicand) => {
   return multiplier * multiplicand;
 };
+
+const divide = (dividend, divisor) => {
+  return dividend / divisor;
+};
