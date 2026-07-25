@@ -13,7 +13,8 @@
     background-color: white;
     padding: 10px;
     margin: 15px;
-    width: 80%;
+    width: 60%;
+    height: 35px;
     flex-wrap: wrap;
 }
 .layout {
@@ -26,6 +27,7 @@
     gap: 5px;
 }
 .operator-btns button {
+    width: 75px;
     padding: 20px;
 }
 .btns {
