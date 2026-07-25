@@ -1,0 +1,38 @@
+.calculator {
+    background-color: gray;
+    border: solid 1px black;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin: 0 20%;
+    display: flex;
+    padding: 10px;
+}
+
+.calculator-display {
+    background-color: white;
+    padding: 10px;
+    margin: 15px;
+    width: 80%;
+    flex-wrap: wrap;
+}
+.layout {
+    display: flex;
+    gap: 5px;
+}
+.operator-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.operator-btns button {
+    padding: 20px;
+}
+.btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.btns button {
+    flex: 1 1 30%;
+}
