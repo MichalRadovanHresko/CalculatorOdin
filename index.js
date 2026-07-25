@@ -26,6 +26,9 @@ let firstNumber = 0;
 let secondNumber = 0;
 let operator = null;
 
+// After a result is shown, the next digit should start a new calculation
+let resultCalled = false;
+
 // Operate function
 
 const operate = (operator, num1, num2) => {
@@ -41,8 +44,10 @@ const operate = (operator, num1, num2) => {
 
 const updateNum = (num) => {
   if (!operator) {
-    if (firstNumber === 0) firstNumber = String(num);
-    else firstNumber += String(num);
+    if (firstNumber === 0 || resultCalled) {
+      firstNumber = String(num);
+      resultCalled = false;
+    } else firstNumber += String(num);
     display.textContent = `${firstNumber}`;
   } else {
     if (secondNumber === 0) secondNumber = String(num);
@@ -85,6 +90,7 @@ const showResult = () => {
   secondNumber = 0;
   operator = null;
   display.textContent = `${firstNumber}`;
+  resultCalled = true;
 };
 
 // Reset all variables
