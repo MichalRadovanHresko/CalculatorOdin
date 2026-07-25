@@ -50,6 +50,9 @@ const setOperator = (newOperator) => {
   isOperatorSelected = true;
   display.textContent = `${firstNumber} ${operator}`;
 };
+const showResult = () => {
+  display.textContent = `${operate(operator, Number(firstNumber), Number(secondNumber))}`;
+};
 
 const display = document.querySelector(".calculator-display");
 display.textContent = `${firstNumber}`;
