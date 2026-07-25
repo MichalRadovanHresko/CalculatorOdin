@@ -1,4 +1,4 @@
-// Initial function we will need add, subtract, multiply, divide
+// Initial functions we will need add, subtract, multiply, divide
 
 const add = (addend1, addend2) => {
   return addend1 + addend2;
@@ -15,6 +15,14 @@ const multiply = (multiplier, multiplicand) => {
 const divide = (dividend, divisor) => {
   return dividend / divisor;
 };
+
+// 3 variables for our calculator
+
+let firstNumber = 5;
+let secondNumber = 3;
+let operator = "+";
+
+// Operate function
 
 const operate = (operator, num1, num2) => {
   if (operator === "+") return add(num1, num2);
