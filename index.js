@@ -51,9 +51,19 @@ const updateNum = (num) => {
 // Display first number and operator
 
 const setOperator = (newOperator) => {
+  // IF operator was selected already call operate function and store it inside variable
+  // Display result in first variable
+  // Reset operator
+
+  if (operator) {
+    firstNumber = operate(operator, Number(firstNumber), Number(secondNumber));
+    display.textContent = `${firstNumber}`;
+    operator = null;
+  } else {
+    operator = newOperator;
+    display.textContent = `${firstNumber} ${operator}`;
+  }
   secondNumber = 0;
-  operator = newOperator;
-  display.textContent = `${firstNumber} ${operator}`;
 };
 
 // Store operate result in first number variable
@@ -63,7 +73,7 @@ const setOperator = (newOperator) => {
 const showResult = () => {
   firstNumber = operate(operator, Number(firstNumber), Number(secondNumber));
   secondNumber = 0;
-  operator = false;
+  operator = null;
   display.textContent = `${firstNumber}`;
 };
 
