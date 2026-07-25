@@ -15,3 +15,11 @@ const multiply = (multiplier, multiplicand) => {
 const divide = (dividend, divisor) => {
   return dividend / divisor;
 };
+
+const operate = (operator, num1, num2) => {
+  if (operator === "+") return add(num1, num2);
+  else if (operator === "-") return substract(num1, num2);
+  else if (operator === "*") return multiply(num1, num2);
+  else if (operator === "/") return divide(num1, num2);
+  else throw new Error("Incorrect operator!");
+};
