@@ -20,7 +20,7 @@ const divide = (dividend, divisor) => {
 
 let firstNumber = 0;
 let secondNumber = 0;
-let operator = false;
+let operator = null;
 
 // Operate function
 
@@ -63,6 +63,7 @@ const setOperator = (newOperator) => {
 const showResult = () => {
   firstNumber = operate(operator, Number(firstNumber), Number(secondNumber));
   secondNumber = 0;
+  operator = false;
   display.textContent = `${firstNumber}`;
 };
 
