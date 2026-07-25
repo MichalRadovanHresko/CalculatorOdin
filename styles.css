@@ -8,7 +8,9 @@
     display: flex;
     padding: 10px;
 }
-
+.calculator h1, p{
+    color: white;
+}
 .calculator-display {
     background-color: white;
     padding: 10px;
