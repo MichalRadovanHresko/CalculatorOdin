@@ -22,8 +22,8 @@ const divide = (dividend, divisor) => {
 
 // 3 variables for our calculator
 
-let firstNumber = 0;
-let secondNumber = 0;
+let firstNumber = null;
+let secondNumber = null;
 let operator = null;
 
 // After a result is shown, the next digit should start a new calculation
@@ -44,13 +44,13 @@ const operate = (operator, num1, num2) => {
 
 const updateNum = (num) => {
   if (!operator) {
-    if (firstNumber === 0 || resultCalled) {
+    if (firstNumber === null || resultCalled) {
       firstNumber = String(num);
       resultCalled = false;
     } else firstNumber += String(num);
     display.textContent = `${firstNumber}`;
   } else {
-    if (secondNumber === 0) secondNumber = String(num);
+    if (secondNumber === null) secondNumber = String(num);
     else secondNumber += String(num);
     display.textContent = `${firstNumber} ${operator} ${secondNumber}`;
   }
@@ -75,7 +75,7 @@ const setOperator = (newOperator) => {
     operator = newOperator;
     display.textContent = `${firstNumber} ${operator}`;
   }
-  secondNumber = 0;
+  secondNumber = null;
 };
 
 // Store operate result in first number variable
@@ -87,7 +87,7 @@ const showResult = () => {
     Math.round(
       operate(operator, Number(firstNumber), Number(secondNumber)) * 100,
     ) / 100;
-  secondNumber = 0;
+  secondNumber = null;
   operator = null;
   display.textContent = `${firstNumber}`;
   resultCalled = true;
@@ -95,10 +95,23 @@ const showResult = () => {
 
 // Reset all variables
 const resetValues = () => {
-  firstNumber = 0;
-  secondNumber = 0;
+  firstNumber = null;
+  secondNumber = null;
   display.textContent = `${firstNumber}`;
 };
 
+const goBack = () => {
+  if (operator === null && secondNumber === null) {
+    if (firstNumber !== null) firstNumber = String(firstNumber).slice(0, -1);
+    display.textContent = `${firstNumber}`;
+  } else if (operator !== null && secondNumber === null) {
+    operator = null;
+    display.textContent = `${firstNumber}`;
+  } else if (secondNumber !== null) {
+    secondNumber = String(secondNumber.slice(0, -1));
+    display.textContent = `${firstNumber} ${operator} ${secondNumber}`;
+  }
+};
+
 const display = document.querySelector(".calculator-display");
-display.textContent = `${firstNumber}`;
+display.textContent = `${firstNumber === null ? 0 : firstNumber}`;
